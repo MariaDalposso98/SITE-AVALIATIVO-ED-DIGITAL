@@ -1,44 +1,57 @@
 
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Adote um Gatinho | Amor em Quatro Patas</title>
+    <title>MiauAmigo - Adoção Responsável de Gatos</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <header>
-        <nav aria-label="Menu Principal">
-            <div class="logo">MiauAdote</div>
-            <div class="accessibility-controls">
-                <button id="btn-contrast" title="Alternar Alto Contraste">🌓</button>
-                <button id="btn-increase-font" title="Aumentar Fonte">A+</button>
-                <button id="btn-decrease-font" title="Diminuir Fonte">A-</button>
-            </div>
-        </nav>
+    <a href="#conteudo-principal" class="skip-link">Pular para o conteúdo</a>
+
+    <header role="banner">
+        <div class="container">
+            <h1>MiauAmigo</h1>
+            <nav aria-label="Menu Principal">
+                <button id="toggle-contrast" aria-label="Alternar Alto Contraste">🌓 Contraste</button>
+                <div class="font-controls">
+                    <button id="font-dec" aria-label="Diminuir fonte">A-</button>
+                    <button id="font-inc" aria-label="Aumentar fonte">A+</button>
+                </div>
+            </nav>
+        </div>
     </header>
 
-    <main>
-        <section id="hero" class="scroll-reveal">
-            <h1>Encontre seu novo melhor amigo</h1>
-            <p>Milhares de gatinhos esperam por um lar cheio de amor.</p>
-        </section>
-
-        <section id="filters" class="scroll-reveal">
-            <div class="tabs" role="tablist">
-                <button role="tab" aria-selected="true" id="tab-todos">Todos</button>
-                <button role="tab" aria-selected="false" id="tab-filhotes">Filhotes</button>
-                <button role="tab" aria-selected="false" id="tab-adultos">Adultos</button>
+    <main id="conteudo-principal">
+        <section class="hero scroll-reveal" aria-labelledby="hero-title">
+            <div class="container">
+                <h2 id="hero-title">Encontre seu novo melhor amigo ronronante</h2>
+                <p>Centenas de gatos esperam por um lar cheio de amor.</p>
             </div>
         </section>
 
-        <section id="cat-grid" class="container-grid scroll-reveal" aria-live="polite">
-            </section>
+        <section id="galeria" class="scroll-reveal" aria-labelledby="galeria-title">
+            <div class="container">
+                <h2 id="galeria-title">Gatinhos para Adoção</h2>
+                <div id="cats-grid" class="grid-container">
+                    </div>
+            </div>
+        </section>
+
+        <section id="faq" class="scroll-reveal" aria-labelledby="faq-title">
+            <div class="container">
+                <h2 id="faq-title">Dúvidas Frequentes</h2>
+                <div id="faq-accordion" class="accordion">
+                    </div>
+            </div>
+        </section>
     </main>
 
-    <footer>
-        <p>&copy; 2024 MiauAdote - ONG de Proteção Animal</p>
+    <footer role="contentinfo">
+        <div class="container">
+            <p>&copy; 2023 MiauAmigo. Desenvolvido com foco em acessibilidade.</p>
+        </div>
     </footer>
 
     <script src="script.js"></script>
