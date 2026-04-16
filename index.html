@@ -4,42 +4,41 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Doe para a causa dos gatos e ajude a transformar vidas!">
-    <title>Doações de Gatos</title>
+    <title>Adote um Gatinho | Amor em Quatro Patas</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <header role="banner">
-        <nav>
-            <ul>
-                <li><a href="#sobre" aria-label="Saiba mais sobre a causa" class="smooth-scroll">Sobre</a></li>
-                <li><a href="#doacoes" aria-label="Veja as opções de doações" class="smooth-scroll">Doações</a></li>
-                <li><a href="#contato" aria-label="Entre em contato" class="smooth-scroll">Contato</a></li>
-            </ul>
+    <header>
+        <nav aria-label="Menu Principal">
+            <div class="logo">MiauAdote</div>
+            <div class="accessibility-controls">
+                <button id="btn-contrast" title="Alternar Alto Contraste">🌓</button>
+                <button id="btn-increase-font" title="Aumentar Fonte">A+</button>
+                <button id="btn-decrease-font" title="Diminuir Fonte">A-</button>
+            </div>
         </nav>
     </header>
 
     <main>
-        <section id="sobre" class="section" role="region" aria-labelledby="titulo-sobre" aria-describedby="descricao-sobre">
-            <h2 id="titulo-sobre">Sobre a Causa</h2>
-            <p id="descricao-sobre">A causa de doação de gatos visa ajudar animais resgatados a encontrar novos lares e cuidados adequados.</p>
+        <section id="hero" class="scroll-reveal">
+            <h1>Encontre seu novo melhor amigo</h1>
+            <p>Milhares de gatinhos esperam por um lar cheio de amor.</p>
         </section>
 
-        <section id="doacoes" class="section" role="region" aria-labelledby="titulo-doacoes" aria-describedby="descricao-doacoes">
-            <h2 id="titulo-doacoes">Como Ajudar</h2>
-            <div id="lista-doacoes" class="doacoes">
-                <!-- Itens de doações serão renderizados dinamicamente -->
+        <section id="filters" class="scroll-reveal">
+            <div class="tabs" role="tablist">
+                <button role="tab" aria-selected="true" id="tab-todos">Todos</button>
+                <button role="tab" aria-selected="false" id="tab-filhotes">Filhotes</button>
+                <button role="tab" aria-selected="false" id="tab-adultos">Adultos</button>
             </div>
         </section>
 
-        <section id="contato" class="section" role="region" aria-labelledby="titulo-contato" aria-describedby="descricao-contato">
-            <h2 id="titulo-contato">Contato</h2>
-            <p id="descricao-contato">Entre em contato para saber mais sobre como você pode ajudar.</p>
-        </section>
+        <section id="cat-grid" class="container-grid scroll-reveal" aria-live="polite">
+            </section>
     </main>
 
-    <footer role="contentinfo">
-        <p>&copy; 2026 Todos os direitos reservados</p>
+    <footer>
+        <p>&copy; 2024 MiauAdote - ONG de Proteção Animal</p>
     </footer>
 
     <script src="script.js"></script>
