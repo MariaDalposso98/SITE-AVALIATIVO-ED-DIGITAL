@@ -19,6 +19,11 @@
     box-sizing: border-box;
 }
 
+/* Rolagem suave */
+html {
+    scroll-behavior: smooth;
+}
+
 /* Corpo e fontes */
 body {
     font-family: 'Arial', sans-serif;
