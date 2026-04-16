@@ -30,5 +30,20 @@ function diminuirFonte() {
     document.body.style.fontSize = '14px';
 }
 
+// Carrossel
+let carrosselIndex = 0;
+const carrosselItems = doacoes; // Usando os mesmos itens para o carrossel
+
+function mostrarCarrossel() {
+    const carrosselDiv = document.getElementById('lista-doacoes');
+    carrosselDiv.innerHTML = `
+        <h3>${carrosselItems[carrosselIndex].tipo}</h3>
+        <p>${carrosselItems[carrosselIndex].descricao}</p>
+    `;
+    carrosselIndex = (carrosselIndex + 1) % carrosselItems.length;
+}
+
+setInterval(mostrarCarrossel, 3000); // Troca a cada 3 segundos
+
 // Chamada da função para renderizar as doações
 renderizarDoacoes();
