@@ -1,58 +1,114 @@
 
-/* --- DESIGN SYSTEM & VARIÁVEIS --- */
+/* --- CONFIGURAÇÕES GLOBAIS E VARIÁVEIS --- */
 :root {
-    --primary-color: #6c5ce7;
-    --secondary-color: #a29bfe;
-    --text-color: #2d3436;
+    --primary-color: #6a1b9a;
+    --secondary-color: #f3e5f5;
+    --text-color: #333;
     --bg-color: #ffffff;
     --radius: 12px;
-    --spacing: 1.5rem;
-    --font-base: 16px;
-    --transition: all 0.3s ease-in-out;
-}
-
-/* --- CONFIGURAÇÕES GERAIS --- */
-html { font-size: var(--font-base); }
-
-body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    color: var(--text-color);
-    background-color: var(--bg-color);
-    margin: 0;
-    transition: var(--transition);
+    --spacing: 20px;
+    --transition: 0.4s ease;
+    font-size: 16px;
 }
 
 /* --- MODO ALTO CONTRASTE --- */
 body.high-contrast {
     --primary-color: #ffff00;
-    --bg-color: #000000;
+    --secondary-color: #000000;
     --text-color: #ffffff;
+    --bg-color: #000000;
 }
 
-/* --- LAYOUT GRID (MOBILE-FIRST) --- */
-.container-grid {
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    color: var(--text-color);
+    background-color: var(--bg-color);
+    transition: background 0.3s, color 0.3s;
+}
+
+.container { width: 90%; max-width: 1200px; margin: auto; }
+
+/* --- HEADER E CONTROLES --- */
+header {
+    background: var(--primary-color);
+    color: white;
+    padding: 1rem 0;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* --- GRID SYSTEM (Flexibilidade de Edição) --- */
+.grid-container {
     display: grid;
+    /* Altere aqui o número de colunas */
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: var(--spacing);
+    padding: var(--spacing) 0;
+}
+
+/* --- CARDS --- */
+.cat-card {
+    background: var(--secondary-color);
     padding: var(--spacing);
-    /* Mobile: 1 coluna */
-    grid-template-columns: 1fr;
+    border-radius: var(--radius);
+    text-align: center;
+    border: 2px solid transparent;
 }
 
-/* Desktop: 3 colunas */
-@media (min-width: 768px) {
-    .container-grid {
-        grid-template-columns: repeat(3, 1fr);
-    }
+.cat-card img {
+    width: 100%;
+    border-radius: calc(var(--radius) / 2);
 }
 
-/* --- ANIMAÇÕES --- */
+/* --- ACORDEÃO (FAQ) --- */
+.accordion-item {
+    border-bottom: 1px solid var(--primary-color);
+}
+.accordion-header {
+    width: 100%;
+    padding: 15px;
+    background: none;
+    border: none;
+    text-align: left;
+    cursor: pointer;
+    font-weight: bold;
+    color: inherit;
+}
+.accordion-content {
+    display: none;
+    padding: 0 15px 15px;
+}
+.accordion-content.active { display: block; }
+
+/* --- ANIMAÇÕES (Scroll Reveal) --- */
 .scroll-reveal {
     opacity: 0;
     transform: translateY(30px);
-    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+    transition: all 0.8s ease-out;
 }
-
 .scroll-reveal.visible {
     opacity: 1;
     transform: translateY(0);
 }
+
+/* Acessibilidade: Skip Link */
+.skip-link {
+    position: absolute;
+    top: -40px;
+    left: 0;
+    background: var(--primary-color);
+    color: white;
+    padding: 8px;
+    z-index: 101;
+}
+.skip-link:focus { top: 0; }
