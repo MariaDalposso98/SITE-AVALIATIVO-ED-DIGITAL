@@ -1,91 +1,58 @@
 
-/* Definindo variáveis para a paleta de cores e espaçamento */
+/* --- DESIGN SYSTEM & VARIÁVEIS --- */
 :root {
-    --cor-primaria: #4CAF50;
-    --cor-secundaria: #FF5722;
-    --cor-texto: #333333;
-    --fundo-claro: #FAFAFA;
-    --fundo-escuro: #121212;
-    --radius: 8px;
-    --espaco-padrao: 16px;
-    --tamanho-fonte: 16px;
-    --tamanho-fonte-grande: 20px;
+    --primary-color: #6c5ce7;
+    --secondary-color: #a29bfe;
+    --text-color: #2d3436;
+    --bg-color: #ffffff;
+    --radius: 12px;
+    --spacing: 1.5rem;
+    --font-base: 16px;
+    --transition: all 0.3s ease-in-out;
 }
 
-/* Resetando margens e paddings */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
+/* --- CONFIGURAÇÕES GERAIS --- */
+html { font-size: var(--font-base); }
 
-/* Rolagem suave */
-html {
-    scroll-behavior: smooth;
-}
-
-/* Corpo e fontes */
 body {
-    font-family: 'Arial', sans-serif;
-    background-color: var(--fundo-claro);
-    color: var(--cor-texto);
-    font-size: var(--tamanho-fonte);
-    line-height: 1.6;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: var(--text-color);
+    background-color: var(--bg-color);
+    margin: 0;
+    transition: var(--transition);
 }
 
-/* Modo de Alto Contraste */
+/* --- MODO ALTO CONTRASTE --- */
 body.high-contrast {
-    background-color: var(--fundo-escuro);
-    color: white;
+    --primary-color: #ffff00;
+    --bg-color: #000000;
+    --text-color: #ffffff;
 }
 
-/* Estilizando o cabeçalho */
-header {
-    background-color: var(--cor-primaria);
-    padding: var(--espaco-padrao);
+/* --- LAYOUT GRID (MOBILE-FIRST) --- */
+.container-grid {
+    display: grid;
+    gap: var(--spacing);
+    padding: var(--spacing);
+    /* Mobile: 1 coluna */
+    grid-template-columns: 1fr;
 }
 
-nav ul {
-    display: flex;
-    list-style-type: none;
-    justify-content: center;
-}
-
-nav li {
-    margin: 0 15px;
-}
-
-nav a {
-    color: white;
-    text-decoration: none;
-    font-size: var(--tamanho-fonte-grande);
-}
-
-/* Estilo das seções */
-.section {
-    padding: var(--espaco-padrao);
-    margin: var(--espaco-padrao) 0;
-}
-
-/* Layout responsivo com CSS Grid */
+/* Desktop: 3 colunas */
 @media (min-width: 768px) {
-    #doacoes {
-        display: grid;
+    .container-grid {
         grid-template-columns: repeat(3, 1fr);
-        gap: var(--espaco-padrao);
     }
 }
 
-/* Animações de Entrada */
-.section {
+/* --- ANIMAÇÕES --- */
+.scroll-reveal {
     opacity: 0;
-    transform: translateY(20px);
-    animation: reveal 1s forwards;
+    transform: translateY(30px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
 }
 
-@keyframes reveal {
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
+.scroll-reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
 }
