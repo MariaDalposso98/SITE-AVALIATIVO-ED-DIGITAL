@@ -18,7 +18,7 @@ const PRODUTOS = [
     { 
         nome: "Pó Solto Invisible", 
         preco: "R$ 68,00", 
-        img: "https://m.media-amazon.com/images/I/51C+uBOnH5L._AC_SL1000_.jpg" 
+        img: "assets/https://epocacosmeticos.vteximg.com.br/arquivos/ids/472140-800-800/batom-liquido-matte-fran-by-franciny-ehlke-xoxo-6.jpg?v=637777624086030000" 
     }
 ];
 function render() {
