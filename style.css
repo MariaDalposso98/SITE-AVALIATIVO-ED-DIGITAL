@@ -35,15 +35,21 @@ body { font-family: var(--font-sans); background: var(--bg-light); color: var(--
 .nav-links a { text-decoration: none; color: var(--primary); font-weight: 500; font-size: 0.9rem; text-transform: uppercase; }
 
 /* HERO */
+/* No seu style.css, procure a parte .hero e substitua por esta */
 .hero {
-    height: 100vh; position: relative;
-    background: url('https://p2.trrsf.com/image/fget/cf/1200/675/middle/images.terra.com/2023/10/18/1253412532-franciny-ehlke.jpg') center/cover;
-    display: flex; align-items: center; justify-content: center; text-align: center; color: #fff;
+    height: 100vh;
+    position: relative;
+    background: #222; /* Cor de fundo caso a imagem falhe */
+    background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), 
+                      url('https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?auto=format&fit=crop&q=80&w=1920');
+    background-position: center;
+    background-size: cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: #fff;
 }
-.hero-overlay { position: absolute; inset: 0; background: rgba(0,0,0,0.5); }
-.hero-content { position: relative; z-index: 1; max-width: 800px; }
-.hero h1 { font-family: var(--font-serif); font-size: 5rem; margin-bottom: 20px; }
-
 /* SEÇÕES E GRID */
 .section { padding: 120px 0; }
 .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; }
