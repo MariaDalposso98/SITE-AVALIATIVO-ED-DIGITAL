@@ -5,12 +5,12 @@ const PRODUTOS = [
         nome: "Gloss Glambox Pink", 
         preco: "R$ 44,90", 
         // Este código longo é a própria imagem transformada em texto
-        img: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mP8/5+hHgAHggJ/PchI7wAAAABJRU5ErkJggg==" 
+        img: "https://m.media-amazon.com/images/I/517iC2D-3rL._AC_SL1000_.jpg" 
     },
     { 
         nome: "Base Real Filter", 
         preco: "R$ 89,90", 
-        img: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mP8/5+hHgAHggJ/PchI7wAAAABJRU5ErkJggg=="
+        img: "https://m.media-amazon.com/images/I/51+x-X-e0YL._AC_SL1000_.jpg"
     }
 ];
 
