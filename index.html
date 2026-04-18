@@ -8,38 +8,32 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <header>
-        <nav aria-label="Menu Principal">
-            <div class="logo">Fran Ehlke</div>
-            <div class="controls">
-                <button onclick="toggleContrast()" aria-label="Alternar Alto Contraste">Contraste</button>
-                <button onclick="changeFontSize('increase')" aria-label="Aumentar Fonte">A+</button>
-                <button onclick="changeFontSize('decrease')" aria-label="Diminuir Fonte">A-</button>
-            </div>
+    <header role="banner">
+        <nav>
+            <ul>
+                <li><button onclick="changeFontSize('increase')" aria-label="Aumentar fonte">A+</button></li>
+                <li><button onclick="changeFontSize('decrease')" aria-label="Diminuir fonte">A-</button></li>
+                <li><button onclick="toggleContrast()" aria-label="Alternar alto contraste">Contraste</button></li>
+            </ul>
         </nav>
+        <h1>Franciny Ehlke</h1>
     </header>
 
     <main>
-        <section id="hero" class="reveal">
-            <h1>Franciny Ehlke</h1>
-            <p>Empreendedora, Influenciadora e Criadora de Conteúdo.</p>
+        <section id="bio" aria-labelledby="heading-bio">
+            <h2 id="heading-bio">Sobre Fran</h2>
+            <div id="bio-container"></div>
         </section>
 
-        <section id="produtos" class="reveal">
-            <h2>Linha Franciny Ehlke</h2>
+        <section id="produtos" aria-labelledby="heading-produtos">
+            <h2 id="heading-produtos">Linha Fran by Glambox</h2>
             <div id="grid-produtos" class="grid-container">
-                </div>
-        </section>
-
-        <section id="sobre" class="reveal">
-            <h2>Dúvidas Frequentes</h2>
-            <div id="faq-container">
                 </div>
         </section>
     </main>
 
-    <footer>
-        <p>&copy; 2023 Franciny Ehlke. Desenvolvido com foco em acessibilidade.</p>
+    <footer role="contentinfo">
+        <p>&copy; 2024 Projeto Mentor Pedagógico</p>
     </footer>
 
     <script src="script.js"></script>
