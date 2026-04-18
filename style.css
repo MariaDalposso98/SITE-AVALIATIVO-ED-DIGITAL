@@ -1,114 +1,60 @@
 
-/* --- CONFIGURAÇÕES GLOBAIS E VARIÁVEIS --- */
+/* DESIGN SYSTEM & VARIÁVEIS */
 :root {
-    --primary-color: #6a1b9a;
-    --secondary-color: #f3e5f5;
-    --text-color: #333;
+    --primary-color: #ff4d94; /* Rosa característico */
+    --secondary-color: #1a1a1a;
     --bg-color: #ffffff;
+    --text-color: #333333;
     --radius: 12px;
-    --spacing: 20px;
+    --font-base: 16px;
     --transition: 0.4s ease;
-    font-size: 16px;
 }
 
-/* --- MODO ALTO CONTRASTE --- */
+/* MODO ALTO CONTRASTE */
 body.high-contrast {
     --primary-color: #ffff00;
-    --secondary-color: #000000;
-    --text-color: #ffffff;
     --bg-color: #000000;
+    --text-color: #ffffff;
 }
 
-* { box-sizing: border-box; margin: 0; padding: 0; }
+* {
+    margin: 0; padding: 0; box-sizing: border-box;
+}
 
 body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    line-height: 1.6;
-    color: var(--text-color);
+    font-family: 'Segoe UI', sans-serif;
+    font-size: var(--font-base);
     background-color: var(--bg-color);
-    transition: background 0.3s, color 0.3s;
+    color: var(--text-color);
+    line-height: 1.6;
+    transition: background var(--transition), color var(--transition);
 }
 
-.container { width: 90%; max-width: 1200px; margin: auto; }
-
-/* --- HEADER E CONTROLES --- */
-header {
-    background: var(--primary-color);
-    color: white;
-    padding: 1rem 0;
-    position: sticky;
-    top: 0;
-    z-index: 100;
-}
-
-header .container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-/* --- GRID SYSTEM (Flexibilidade de Edição) --- */
+/* LAYOUT RESPONSIVO (GRID) */
 .grid-container {
     display: grid;
     /* Altere aqui o número de colunas */
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: var(--spacing);
-    padding: var(--spacing) 0;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    padding: 20px;
 }
 
-/* --- CARDS --- */
-.cat-card {
-    background: var(--secondary-color);
-    padding: var(--spacing);
-    border-radius: var(--radius);
-    text-align: center;
-    border: 2px solid transparent;
-}
-
-.cat-card img {
-    width: 100%;
-    border-radius: calc(var(--radius) / 2);
-}
-
-/* --- ACORDEÃO (FAQ) --- */
-.accordion-item {
-    border-bottom: 1px solid var(--primary-color);
-}
-.accordion-header {
-    width: 100%;
-    padding: 15px;
-    background: none;
-    border: none;
-    text-align: left;
-    cursor: pointer;
-    font-weight: bold;
-    color: inherit;
-}
-.accordion-content {
-    display: none;
-    padding: 0 15px 15px;
-}
-.accordion-content.active { display: block; }
-
-/* --- ANIMAÇÕES (Scroll Reveal) --- */
-.scroll-reveal {
+/* ANIMAÇÃO DE REVELAÇÃO */
+.reveal {
     opacity: 0;
     transform: translateY(30px);
     transition: all 0.8s ease-out;
 }
-.scroll-reveal.visible {
+
+.reveal.active {
     opacity: 1;
     transform: translateY(0);
 }
 
-/* Acessibilidade: Skip Link */
-.skip-link {
-    position: absolute;
-    top: -40px;
-    left: 0;
-    background: var(--primary-color);
-    color: white;
-    padding: 8px;
-    z-index: 101;
+/* ESTILO DOS CARDS DINÂMICOS */
+.card {
+    background: #f4f4f4;
+    padding: 1.5rem;
+    border-radius: var(--radius);
+    border: 2px solid var(--primary-color);
 }
-.skip-link:focus { top: 0; }
