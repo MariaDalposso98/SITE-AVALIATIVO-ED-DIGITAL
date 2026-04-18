@@ -4,34 +4,66 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Franciny Ehlke | Official Brand</title>
+    <title>FRAN | Franciny Ehlke Brand</title>
     <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700&family=Playfair+Display:wght@600&display=swap" rel="stylesheet">
 </head>
 <body>
 
-    <div class="acc-bar">
-        <button onclick="adjustFont('up')" aria-label="Aumentar Fonte">A+</button>
-        <button onclick="adjustFont('down')" aria-label="Diminuir Fonte">A-</button>
-        <button onclick="toggleTheme()" aria-label="Alternar Contraste">🌓</button>
-    </div>
-
-    <header class="hero">
-        <div class="hero-text">
-            <h1>FRAN</h1>
-            <p>BELEZA E AUTENTICIDADE</p>
+    <header class="navbar">
+        <div class="nav-container">
+            <div class="logo">FRAN</div>
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#sobre">A Marca</a></li>
+                    <li><a href="#produtos">Produtos</a></li>
+                </ul>
+            </nav>
+            <div class="acc-controls">
+                <button onclick="adjustFont('up')">A+</button>
+                <button onclick="toggleTheme()" class="theme-btn">🌓</button>
+            </div>
         </div>
     </header>
 
-    <main class="container">
-        <h2 class="section-title">Linha Fran by Glambox</h2>
-        
-        <div id="product-grid" class="product-grid">
-            <p>A carregar produtos...</p>
+    <section class="hero" id="home">
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <span class="reveal">Lançamento Exclusivo</span>
+            <h1 class="reveal">A Nova Era da Beleza</h1>
+            <p class="reveal">Tecnologia, sofisticação e a autenticidade de Franciny Ehlke.</p>
+            <a href="#produtos" class="btn-main reveal">Explorar Coleção</a>
         </div>
+    </section>
+
+    <main>
+        <section class="section bio-section" id="sobre">
+            <div class="container grid-2">
+                <div class="bio-text">
+                    <h2 class="title-accent">Franciny Ehlke</h2>
+                    <p>Mais do que maquiagem, uma experiência de autoestima. Desenvolvida para quem não abre mão de performance e brilho único.</p>
+                </div>
+                <div class="bio-img-wrapper">
+                    <img src="https://p2.trrsf.com/image/fget/cf/1200/675/middle/images.terra.com/2023/10/18/1253412532-franciny-ehlke.jpg" alt="Franciny Ehlke">
+                </div>
+            </div>
+        </section>
+
+        <section class="section" id="produtos">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Best Sellers</h2>
+                    <div class="divider"></div>
+                </div>
+                <div id="product-grid" class="product-grid">
+                    </div>
+            </div>
+        </section>
     </main>
 
     <footer class="footer">
-        <p>&copy; 2024 Franciny Ehlke Experience</p>
+        <p>&copy; 2024 FRAN BY GLAMBOX. All Rights Reserved.</p>
     </footer>
 
     <script src="script.js"></script>
