@@ -35,7 +35,6 @@ body { font-family: var(--font-sans); background: var(--bg-light); color: var(--
 .nav-links a { text-decoration: none; color: var(--primary); font-weight: 500; font-size: 0.9rem; text-transform: uppercase; }
 
 /* HERO */
-/* No seu style.css, procure a parte .hero e substitua por esta */
 .hero {
     height: 100vh;
     position: relative;
