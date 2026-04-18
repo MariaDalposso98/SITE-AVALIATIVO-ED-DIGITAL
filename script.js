@@ -1,77 +1,62 @@
 
-// 1. BANCO DE DADOS DOS PRODUTOS (Altere as URLs aqui)
-const DATA = {
-    branding: {
-        bio_img: "URL_DA_FOTO_DA_FRANCINY.jpg"
+// 1. BANCO DE DADOS (Simulação de uma API)
+const PRODUTOS = [
+    {
+        nome: "Gloss Glambox",
+        preco: "R$ 44,90",
+        img: "https://m.media-amazon.com/images/I/517iC2D-3rL._AC_SL1000_.jpg"
     },
-    products: [
-        {
-            nome: "Gloss Glambox Pink",
-            preco: "R$ 42,90",
-            img: "https://via.placeholder.com/400x500",
-            tag: "Best Seller"
-        },
-        {
-            nome: "Base Real Filter",
-            preco: "R$ 89,00",
-            img: "https://via.placeholder.com/400x500",
-            tag: "Novo"
-        },
-        {
-            nome: "Paleta de Sombras Fran",
-            preco: "R$ 120,00",
-            img: "https://via.placeholder.com/400x500",
-            tag: "Premium"
-        }
-    ]
-};
+    {
+        nome: "Base Real Filter",
+        preco: "R$ 89,90",
+        img: "https://m.media-amazon.com/images/I/51+x-X-e0YL._AC_SL1000_.jpg"
+    },
+    {
+        nome: "Paleta de Sombras",
+        preco: "R$ 119,90",
+        img: "https://m.media-amazon.com/images/I/61kYyV7qT-L._AC_SL1200_.jpg"
+    },
+    {
+        nome: "Batom Líquido Matte",
+        preco: "R$ 38,00",
+        img: "https://m.media-amazon.com/images/I/51C+uBOnH5L._AC_SL1000_.jpg"
+    }
+];
 
-// 2. FUNÇÃO DE RENDERIZAÇÃO
-function initApp() {
+// 2. FUNÇÃO PARA RENDERIZAR OS PRODUTOS NO HTML
+function renderizarProdutos() {
     const grid = document.getElementById('product-grid');
     
-    const htmlProdutos = DATA.products.map(product => `
-        <article class="card scroll-reveal">
-            <div class="card__tag">${product.tag}</div>
-            <img src="${product.img}" alt="${product.nome}">
-            <div class="card__info">
-                <h3>${product.nome}</h3>
-                <p>${product.preco}</p>
-                <button class="btn-buy">Comprar Agora</button>
-            </div>
+    // Mapeia o array de objetos para código HTML
+    const cardsHTML = PRODUTOS.map(produto => `
+        <article class="card">
+            <img src="${produto.img}" alt="${produto.nome}">
+            <h3>${produto.nome}</h3>
+            <p class="price">${produto.preco}</p>
+            <button class="btn-buy">Comprar Agora</button>
         </article>
-    `).join('');
+    `).join(''); // Une tudo em uma única string
 
-    grid.innerHTML = htmlProdutos;
+    grid.innerHTML = cardsHTML;
 }
 
-// 3. ACESSIBILIDADE: TAMANHO DA FONTE
-let fontSize = 16;
-function changeFontSize(type) {
-    fontSize = (type === 'increase') ? fontSize + 2 : fontSize - 2;
-    document.documentElement.style.setProperty('--base-size', fontSize + 'px');
+// 3. FUNÇÕES DE ACESSIBILIDADE
+let fontBase = 16;
+
+function adjustFont(direcao) {
+    if (direcao === 'up') fontBase += 2;
+    else fontBase -= 2;
+    
+    // Altera a variável --font-size no CSS em tempo real
+    document.documentElement.style.setProperty('--font-size', fontBase + 'px');
 }
 
-// 4. MODO CONTRASTE
-function toggleContrast() {
+function toggleTheme() {
     document.body.classList.toggle('high-contrast');
 }
 
-// 5. OBSERVERS (Para animações ao rolar a página)
-const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-        if(entry.isIntersecting) {
-            entry.target.classList.add('active');
-        }
-    });
-}, { threshold: 0.1 });
-
-// INICIALIZAÇÃO GERAL
-window.addEventListener('DOMContentLoaded', () => {
-    initApp();
-    
-    // Ativa animações
-    setTimeout(() => {
-        document.querySelectorAll('.scroll-reveal').forEach(el => observer.observe(el));
-    }, 100);
-});
+// 4. INICIALIZAÇÃO (Executa quando a página carrega)
+window.onload = () => {
+    console.log("Sistema Franciny Ehlke carregado com sucesso!");
+    renderizarProdutos();
+};
