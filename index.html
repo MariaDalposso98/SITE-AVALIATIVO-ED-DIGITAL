@@ -4,54 +4,36 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Franciny Ehlke | Official Experience</title>
+    <title>Franciny Ehlke | Official Brand</title>
     <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
 </head>
 <body>
 
-    <nav class="accessibility-bar" role="navigation">
-        <button onclick="changeFontSize('increase')" aria-label="Aumentar texto">A+</button>
-        <button onclick="changeFontSize('decrease')" aria-label="Diminuir texto">A-</button>
-        <button onclick="toggleContrast()" aria-label="Modo Noturno/Contraste">🌓</button>
-    </nav>
+    <div class="acc-bar">
+        <button onclick="adjustFont('up')" aria-label="Aumentar Fonte">A+</button>
+        <button onclick="adjustFont('down')" aria-label="Diminuir Fonte">A-</button>
+        <button onclick="toggleTheme()" aria-label="Alternar Contraste">🌓</button>
+    </div>
 
     <header class="hero">
-        <div class="hero__content scroll-reveal">
-            <h1 class="hero__title">Franciny <br><span>Ehlke</span></h1>
-            <p class="hero__subtitle">Beleza, Autenticidade e Empreendedorismo.</p>
-            <a href="#produtos" class="btn-primary">Conheça a Linha</a>
+        <div class="hero-text">
+            <h1>FRAN</h1>
+            <p>BELEZA E AUTENTICIDADE</p>
         </div>
     </header>
 
-    <main>
-        <section class="bio section-padding" id="sobre">
-            <div class="container grid-2">
-                <div class="bio__image scroll-reveal">
-                    <img src="https://via.placeholder.com/500x700" alt="Franciny Ehlke Sorrindo" id="main-bio-img">
-                </div>
-                <div class="bio__text scroll-reveal">
-                    <span class="eyebrow">A Trajetória</span>
-                    <h2>De Influenciadora a Empresária de Sucesso</h2>
-                    <p>Com mais de 15 milhões de seguidores, Franciny Ehlke redefiniu o mercado de beleza nacional com sua linha de maquiagem que une tecnologia e sofisticação.</p>
-                </div>
-            </div>
-        </section>
-
-        <section class="products section-padding" id="produtos">
-            <div class="container">
-                <div class="section-header">
-                    <h2>Linha Fran by Glambox</h2>
-                    <p>Os favoritos da comunidade de beleza.</p>
-                </div>
-                <div id="product-grid" class="product-grid">
-                    </div>
-            </div>
-        </section>
+    <main class="container">
+        <h2 class="section-title">Linha Fran by Glambox</h2>
+        
+        <div id="product-grid" class="product-grid">
+            <p>A carregar produtos...</p>
+        </div>
     </main>
 
     <footer class="footer">
-        <p>&copy; 2024 Franciny Ehlke Brand. Desenvolvido para fins pedagógicos.</p>
+        <p>&copy; 2024 Franciny Ehlke Experience</p>
     </footer>
 
     <script src="script.js"></script>
+</body>
+</html>
