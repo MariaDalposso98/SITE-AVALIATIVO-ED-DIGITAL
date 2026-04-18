@@ -1,51 +1,41 @@
 
-// 1. GESTÃO DE DADOS (CONTEÚDO DINÂMICO)
+// GESTÃO DE DADOS (Dinamismo)
 const produtos = [
-    { nome: "Gloss Glossip", desc: "Brilho intenso e hidratação." },
-    { nome: "Base Real Filter", desc: "Alta cobertura e acabamento matte." },
-    { nome: "Paleta de Sombras", desc: "Cores vibrantes para qualquer ocasião." }
+    { nome: "Gloss Glambox", preco: "R$ 45,90", img: "url_da_imagem" },
+    { nome: "Base Real Filter", preco: "R$ 89,90", img: "url_da_imagem" }
 ];
 
-// 2. RENDERIZAÇÃO DINÂMICA
 function renderizarProdutos() {
     const container = document.getElementById('grid-produtos');
     container.innerHTML = produtos.map(prod => `
-        <article class="card">
+        <article class="product-card scroll-reveal">
             <h3>${prod.nome}</h3>
-            <p>${prod.desc}</p>
+            <p>${prod.preco}</p>
         </article>
     `).join('');
 }
 
-// 3. ACESSIBILIDADE: FONTE E CONTRASTE
-let currentFontSize = 16;
-
+// ACESSIBILIDADE: TAMANHO DA FONTE
+let currentSize = 16;
 function changeFontSize(action) {
-    const body = document.body;
-    if (action === 'increase') currentFontSize += 2;
-    if (action === 'decrease') currentFontSize -= 2;
-    body.style.fontSize = currentFontSize + 'px';
+    if(action === 'increase') currentSize += 2;
+    else if(action === 'decrease') currentSize -= 2;
+    document.documentElement.style.setProperty('--font-base', `${currentSize}px`);
 }
 
+// ALTO CONTRASTE
 function toggleContrast() {
     document.body.classList.toggle('high-contrast');
 }
 
-// 4. VISÃO SISTÊMICA: SCROLL REVEAL (INTERAÇÃO CSS + JS)
-function reveal() {
-    const reveals = document.querySelectorAll(".reveal");
-    reveals.forEach(window => {
-        const windowHeight = window.innerHeight;
-        const revealTop = window.getBoundingClientRect().top;
-        if (revealTop < 150) {
-            window.classList.add("active");
-        }
-    });
-}
-
 // INICIALIZAÇÃO
-window.addEventListener("scroll", reveal);
 window.onload = () => {
     renderizarProdutos();
-    reveal();
+    // Lógica simples de Scroll Reveal
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) entry.target.classList.add('visible');
+        });
+    });
+    document.querySelectorAll('.scroll-reveal').forEach(el => observer.observe(el));
 };
