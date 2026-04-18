@@ -1,13 +1,12 @@
 
-/* DESIGN SYSTEM & VARIÁVEIS */
+/* DESIGN SYSTEM - VARIÁVEIS */
 :root {
-    --primary-color: #ff4d94; /* Rosa característico */
-    --secondary-color: #1a1a1a;
+    --primary-color: #ff4d94;
     --bg-color: #ffffff;
     --text-color: #333333;
     --radius: 12px;
+    --spacing: 1.5rem;
     --font-base: 16px;
-    --transition: 0.4s ease;
 }
 
 /* MODO ALTO CONTRASTE */
@@ -17,44 +16,40 @@ body.high-contrast {
     --text-color: #ffffff;
 }
 
-* {
-    margin: 0; padding: 0; box-sizing: border-box;
+html {
+    font-size: var(--font-base);
 }
 
 body {
-    font-family: 'Segoe UI', sans-serif;
-    font-size: var(--font-base);
     background-color: var(--bg-color);
     color: var(--text-color);
-    line-height: 1.6;
-    transition: background var(--transition), color var(--transition);
+    font-family: 'Segoe UI', sans-serif;
+    transition: background 0.3s, color 0.3s;
 }
 
-/* LAYOUT RESPONSIVO (GRID) */
+/* GRID E LAYOUT (Mobile-First) */
 .grid-container {
     display: grid;
-    /* Altere aqui o número de colunas */
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 20px;
-    padding: 20px;
+    gap: var(--spacing);
+    padding: var(--spacing);
+    /* Edite aqui para mudar as colunas no Desktop */
+    grid-template-columns: 1fr; 
 }
 
-/* ANIMAÇÃO DE REVELAÇÃO */
-.reveal {
+@media (min-width: 768px) {
+    .grid-container {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+/* ANIMAÇÃO DE ENTRADA */
+.scroll-reveal {
     opacity: 0;
-    transform: translateY(30px);
-    transition: all 0.8s ease-out;
+    transform: translateY(20px);
+    transition: all 0.6s ease-out;
 }
 
-.reveal.active {
+.scroll-reveal.visible {
     opacity: 1;
     transform: translateY(0);
-}
-
-/* ESTILO DOS CARDS DINÂMICOS */
-.card {
-    background: #f4f4f4;
-    padding: 1.5rem;
-    border-radius: var(--radius);
-    border: 2px solid var(--primary-color);
 }
