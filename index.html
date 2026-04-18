@@ -1,57 +1,45 @@
 
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MiauAmigo - Adoção Responsável de Gatos</title>
+    <title>Franciny Ehlke | Landing Page</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <a href="#conteudo-principal" class="skip-link">Pular para o conteúdo</a>
-
-    <header role="banner">
-        <div class="container">
-            <h1>MiauAmigo</h1>
-            <nav aria-label="Menu Principal">
-                <button id="toggle-contrast" aria-label="Alternar Alto Contraste">🌓 Contraste</button>
-                <div class="font-controls">
-                    <button id="font-dec" aria-label="Diminuir fonte">A-</button>
-                    <button id="font-inc" aria-label="Aumentar fonte">A+</button>
-                </div>
-            </nav>
-        </div>
+    <header>
+        <nav aria-label="Menu Principal">
+            <div class="logo">Fran Ehlke</div>
+            <div class="controls">
+                <button onclick="toggleContrast()" aria-label="Alternar Alto Contraste">Contraste</button>
+                <button onclick="changeFontSize('increase')" aria-label="Aumentar Fonte">A+</button>
+                <button onclick="changeFontSize('decrease')" aria-label="Diminuir Fonte">A-</button>
+            </div>
+        </nav>
     </header>
 
-    <main id="conteudo-principal">
-        <section class="hero scroll-reveal" aria-labelledby="hero-title">
-            <div class="container">
-                <h2 id="hero-title">Encontre seu novo melhor amigo ronronante</h2>
-                <p>Centenas de gatos esperam por um lar cheio de amor.</p>
-            </div>
+    <main>
+        <section id="hero" class="reveal">
+            <h1>Franciny Ehlke</h1>
+            <p>Empreendedora, Influenciadora e Criadora de Conteúdo.</p>
         </section>
 
-        <section id="galeria" class="scroll-reveal" aria-labelledby="galeria-title">
-            <div class="container">
-                <h2 id="galeria-title">Gatinhos para Adoção</h2>
-                <div id="cats-grid" class="grid-container">
-                    </div>
-            </div>
+        <section id="produtos" class="reveal">
+            <h2>Linha Franciny Ehlke</h2>
+            <div id="grid-produtos" class="grid-container">
+                </div>
         </section>
 
-        <section id="faq" class="scroll-reveal" aria-labelledby="faq-title">
-            <div class="container">
-                <h2 id="faq-title">Dúvidas Frequentes</h2>
-                <div id="faq-accordion" class="accordion">
-                    </div>
-            </div>
+        <section id="sobre" class="reveal">
+            <h2>Dúvidas Frequentes</h2>
+            <div id="faq-container">
+                </div>
         </section>
     </main>
 
-    <footer role="contentinfo">
-        <div class="container">
-            <p>&copy; 2023 MiauAmigo. Desenvolvido com foco em acessibilidade.</p>
-        </div>
+    <footer>
+        <p>&copy; 2023 Franciny Ehlke. Desenvolvido com foco em acessibilidade.</p>
     </footer>
 
     <script src="script.js"></script>
