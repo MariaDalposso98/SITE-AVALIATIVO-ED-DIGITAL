@@ -3,7 +3,7 @@ const PRODUTOS = [
     { 
         nome: "Gloss Glambox Pink", 
         preco: "R$ 44,90", 
-        img: "https://m.media-amazon.com/images/I/517iC2D-3rL._AC_SL1000_.jpg" 
+        img: "assets/https://dcdn-us.mitiendanube.com/stores/965/764/products/0995676503a1a0927562bdaea989ebeb-947ff5fe362cc53cec17207050077290-1024-1024.webp" 
     },
     { 
         nome: "Base Real Filter", 
