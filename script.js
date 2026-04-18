@@ -8,7 +8,7 @@ const PRODUTOS = [
     { 
         nome: "Base Real Filter", 
         preco: "R$ 89,90", 
-        img: "https://m.media-amazon.com/images/I/51+x-X-e0YL._AC_SL1000_.jpg" 
+        img: "assets/https://franbyfr.com.br/cdn/shop/files/Prancheta_2_copiar_9.jpg?v=1756749271&width=3840" 
     },
     { 
         nome: "Paleta de Sombras Fran", 
