@@ -13,7 +13,7 @@ const PRODUTOS = [
     { 
         nome: "Paleta de Sombras Fran", 
         preco: "R$ 119,90", 
-        img: "https://m.media-amazon.com/images/I/61kYyV7qT-L._AC_SL1200_.jpg" 
+        img: "assets/https://cdn.vnda.com.br/sunsetcosmeticos/2024/05/06/15_09_13_685_a5605c67d5b1a6365b458e775c7295ad.jpg?v=1715018953" 
     },
     { 
         nome: "Pó Solto Invisible", 
