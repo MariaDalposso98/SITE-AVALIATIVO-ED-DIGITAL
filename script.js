@@ -1,41 +1,77 @@
 
-// GESTÃO DE DADOS (Dinamismo)
-const produtos = [
-    { nome: "Gloss Glambox", preco: "R$ 45,90", img: "url_da_imagem" },
-    { nome: "Base Real Filter", preco: "R$ 89,90", img: "url_da_imagem" }
-];
+// 1. BANCO DE DADOS DOS PRODUTOS (Altere as URLs aqui)
+const DATA = {
+    branding: {
+        bio_img: "URL_DA_FOTO_DA_FRANCINY.jpg"
+    },
+    products: [
+        {
+            nome: "Gloss Glambox Pink",
+            preco: "R$ 42,90",
+            img: "https://via.placeholder.com/400x500",
+            tag: "Best Seller"
+        },
+        {
+            nome: "Base Real Filter",
+            preco: "R$ 89,00",
+            img: "https://via.placeholder.com/400x500",
+            tag: "Novo"
+        },
+        {
+            nome: "Paleta de Sombras Fran",
+            preco: "R$ 120,00",
+            img: "https://via.placeholder.com/400x500",
+            tag: "Premium"
+        }
+    ]
+};
 
-function renderizarProdutos() {
-    const container = document.getElementById('grid-produtos');
-    container.innerHTML = produtos.map(prod => `
-        <article class="product-card scroll-reveal">
-            <h3>${prod.nome}</h3>
-            <p>${prod.preco}</p>
+// 2. FUNÇÃO DE RENDERIZAÇÃO
+function initApp() {
+    const grid = document.getElementById('product-grid');
+    
+    const htmlProdutos = DATA.products.map(product => `
+        <article class="card scroll-reveal">
+            <div class="card__tag">${product.tag}</div>
+            <img src="${product.img}" alt="${product.nome}">
+            <div class="card__info">
+                <h3>${product.nome}</h3>
+                <p>${product.preco}</p>
+                <button class="btn-buy">Comprar Agora</button>
+            </div>
         </article>
     `).join('');
+
+    grid.innerHTML = htmlProdutos;
 }
 
-// ACESSIBILIDADE: TAMANHO DA FONTE
-let currentSize = 16;
-function changeFontSize(action) {
-    if(action === 'increase') currentSize += 2;
-    else if(action === 'decrease') currentSize -= 2;
-    document.documentElement.style.setProperty('--font-base', `${currentSize}px`);
+// 3. ACESSIBILIDADE: TAMANHO DA FONTE
+let fontSize = 16;
+function changeFontSize(type) {
+    fontSize = (type === 'increase') ? fontSize + 2 : fontSize - 2;
+    document.documentElement.style.setProperty('--base-size', fontSize + 'px');
 }
 
-// ALTO CONTRASTE
+// 4. MODO CONTRASTE
 function toggleContrast() {
     document.body.classList.toggle('high-contrast');
 }
 
-// INICIALIZAÇÃO
-window.onload = () => {
-    renderizarProdutos();
-    // Lógica simples de Scroll Reveal
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) entry.target.classList.add('visible');
-        });
+// 5. OBSERVERS (Para animações ao rolar a página)
+const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if(entry.isIntersecting) {
+            entry.target.classList.add('active');
+        }
     });
-    document.querySelectorAll('.scroll-reveal').forEach(el => observer.observe(el));
-};
+}, { threshold: 0.1 });
+
+// INICIALIZAÇÃO GERAL
+window.addEventListener('DOMContentLoaded', () => {
+    initApp();
+    
+    // Ativa animações
+    setTimeout(() => {
+        document.querySelectorAll('.scroll-reveal').forEach(el => observer.observe(el));
+    }, 100);
+});
